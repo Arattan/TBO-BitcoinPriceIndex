@@ -1,19 +1,17 @@
 package com.example.android.tbo_bitcoinpriceindex;
 
-import com.squareup.moshi.Json;
-
-import java.util.Date;
-
 public class BitcoinPrice {
-    private Date time;
-    @Json(name = "bpi") private double price;
 
+    private double EUR;
 
-    public Date getTime() {
-        return time;
+    public BitcoinPrice(double tsyms) {
+        this.EUR = tsyms;
     }
 
-    public double getPrice() {
-        return price;
+    public double getTsyms() {
+        return EUR;
     }
+
+
 }
+
