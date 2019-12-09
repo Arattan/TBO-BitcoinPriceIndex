@@ -18,7 +18,11 @@ public class CurrentPriceFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_price_current, container, false);
-
         return rootView;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 }

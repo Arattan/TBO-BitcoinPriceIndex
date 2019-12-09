@@ -32,14 +32,22 @@ public class MainActivity extends AppCompatActivity {
 
 //        textViewResult = findViewById(R.id.textView);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build();
+        Retrofit retrofit = provideRetrofit();
 
-        BitcoinPriceIndexApi bitcoinPriceIndexApi = retrofit.create(BitcoinPriceIndexApi.class);
+        BitcoinPriceIndexApi bitcoinPriceIndexApi = getBitcoinPriceIndex(retrofit);
 
         getBitcoinPriceIndex(bitcoinPriceIndexApi);
+    }
+
+    public BitcoinPriceIndexApi getBitcoinPriceIndex(Retrofit retrofit) {
+        return retrofit.create(BitcoinPriceIndexApi.class);
+    }
+
+    public Retrofit provideRetrofit() {
+        return new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(MoshiConverterFactory.create())
+                    .build();
     }
 
     private void getBitcoinPriceIndex(BitcoinPriceIndexApi bitcoinPriceIndexApi) {
