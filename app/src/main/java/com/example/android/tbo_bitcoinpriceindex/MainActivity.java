@@ -1,6 +1,7 @@
 package com.example.android.tbo_bitcoinpriceindex;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -22,7 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        textViewResult = findViewById(R.id.textView);
+        //Provide CurrentPriceFragment
+        CurrentPriceFragment currentPriceFragment = new CurrentPriceFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.current_price_fragment_container, currentPriceFragment)
+                .commit();
+
+//        textViewResult = findViewById(R.id.textView);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

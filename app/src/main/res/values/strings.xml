@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TBO-BitcoinPriceIndex</string>
+    <string name="compared_currencies">€/BTC</string>
 </resources>
