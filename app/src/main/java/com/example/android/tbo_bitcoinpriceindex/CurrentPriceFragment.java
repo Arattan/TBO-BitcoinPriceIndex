@@ -13,6 +13,12 @@ public class CurrentPriceFragment extends Fragment {
     public CurrentPriceFragment() {
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -20,6 +26,7 @@ public class CurrentPriceFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_price_current, container, false);
         return rootView;
     }
+
 
     @Override
     public void onPause() {

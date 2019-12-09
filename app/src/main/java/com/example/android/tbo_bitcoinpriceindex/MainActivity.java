@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textViewResult;
     private static final String BASE_URL = "https://min-api.cryptocompare.com/data/";
-    private static final String API_KEY = "&api_key={5a100b51fd42714654fe58e10f7da21cabf16f8312b82922236e91463ab56332}";
+    private static final String API_KEY =
+            "&api_key={5a100b51fd42714654fe58e10f7da21cabf16f8312b82922236e91463ab56332}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Provide CurrentPriceFragment
         CurrentPriceFragment currentPriceFragment = new CurrentPriceFragment();
+
+        //
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .add(R.id.current_price_fragment_container, currentPriceFragment)
@@ -51,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getBitcoinPriceIndex(BitcoinPriceIndexApi bitcoinPriceIndexApi) {
-        Call<BitcoinPrice> call = bitcoinPriceIndexApi.getBitcoinPrices("BTC", "EUR", API_KEY);
+        Call<BitcoinPrice> call = bitcoinPriceIndexApi.getBitcoinPrices(
+                "BTC", "EUR", API_KEY);
 
         call.enqueue(new Callback<BitcoinPrice>() {
             @Override
